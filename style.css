@@ -1,0 +1,251 @@
+/* Definição de Variáveis de Cores (Profissional) */
+:root {
+    --primary-app: #0077FF;     /* Azul Primário (FinanQuest) */
+    --success-app: #58cc02;     /* Verde Duolingo / Ganho */
+    --danger-app: #FF4B4B;      /* Vermelho Queda / Perda */
+    --lesson-app: #FF6600;      /* Laranja Aula */
+    --background-light: #f0f4f8;/* Fundo Claro */
+    --text-dark: #444;
+}
+
+/* Aplicação das variáveis de cor */
+.text-primary-app { color: var(--primary-app) !important; }
+.text-success-app { color: var(--success-app) !important; }
+.text-danger-app { color: var(--danger-app) !important; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background-light); 
+    padding-bottom: 70px; /* Espaço para a Tab Bar fixa */
+}
+
+/* --------------------------------- */
+/* NOVO ESTILO: OVERLAY DE CARREGAMENTO */
+/* --------------------------------- */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro */
+    z-index: 10000; /* Garante que fique acima de tudo */
+    display: none; /* Inicia oculto, só será 'flex' quando o JS o ativar */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rotating-logo {
+    width: 80px;
+    height: 80px;
+    animation: spin 1.5s linear infinite; /* Aplica a animação */
+}
+
+/* Animação para fazer o logo girar */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* --------------------------------- */
+/* HEADER e AVATAR */
+/* --------------------------------- */
+.dashboard-header {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: none; 
+}
+
+.avatar-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-app); 
+    object-fit: cover;
+    box-shadow: 0 0 5px rgba(0, 119, 255, 0.3); 
+}
+
+/* --------------------------------- */
+/* ESTILO BASE DOS CARDS (Duolingo/Fintech) */
+/* --------------------------------- */
+.fincoin-card, 
+.missions-box, 
+.featured-lesson-card,
+.xp-progress-card,
+.portfolio-performance-card {
+    background: white;
+    border-radius: 18px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); 
+    border: 1px solid #e0e6ec; 
+}
+
+.xp-progress-card {
+    border: none; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 15px !important;
+}
+
+.progress-bar {
+    background-color: var(--success-app) !important; 
+}
+
+/* Títulos */
+h5.fw-bold {
+    margin-bottom: 15px !important;
+    font-size: 18px;
+    color: var(--text-dark); 
+}
+
+/* Mascote Mini */
+.mascote-mini {
+    width: 60px;
+    transform: rotate(5deg);
+}
+
+/* --------------------------------- */
+/* ESTILO DO CARD DE PERFORMANCE DA CARTEIRA */
+/* --------------------------------- */
+.asset-item {
+    font-size: 1rem;
+    border-bottom: 1px solid #f8f9fa; 
+}
+.asset-item:last-of-type {
+    border-bottom: none;
+}
+
+
+/* --------------------------------- */
+/* ESTILO PROFISSIONAL DAS MISSÕES */
+/* --------------------------------- */
+.mission-item {
+    padding: 12px 0; 
+    border-bottom: 1px solid #f0f4f8; 
+    font-size: 16px;
+    transition: background-color 0.2s, opacity 0.3s;
+    cursor: default; /* Alterado para default para remover a dica de clique, já que o JS está desativado */
+}
+.mission-item:hover:not(.completed) {
+    background-color: #f8f9fa;
+}
+.mission-item:last-child {
+    border-bottom: none;
+}
+
+/* Ícone da Missão (Bloco colorido e arredondado) */
+.mission-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge de XP */
+.badge-xp {
+    background-color: var(--success-app) !important; 
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px; 
+    border-radius: 8px; 
+    font-size: 0.75rem;
+}
+
+/* Concluída */
+.mission-check {
+    font-size: 1.3rem;
+}
+.mission-item.completed {
+    opacity: 0.8;
+}
+.mission-item.completed .mission-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* --------------------------------- */
+/* ESTILO DO CARD DE AULA EM DESTAQUE */
+/* --------------------------------- */
+.featured-lesson-card {
+    border-left: 8px solid var(--lesson-app); 
+    padding-left: 20px !important;
+}
+
+.btn-primary-lesson {
+    background-color: var(--lesson-app); 
+    border-color: #e65c00;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+    transition: background-color 0.2s;
+}
+
+.btn-primary-lesson:hover {
+    background-color: #e65c00;
+    color: white;
+}
+
+/* --------------------------------- */
+/* CARDS DE AÇÕES (Carousel) */
+/* --------------------------------- */
+.stock-card {
+    border-radius: 15px;
+    color: white;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    margin: 0 5px; 
+}
+/* Fundos para Aumento, Queda e Neutro */
+.increase-bg { background: linear-gradient(135deg, var(--success-app), #49a802); }
+.decrease-bg { background: linear-gradient(135deg, var(--danger-app), #d63030); }
+.neutral-bg { background: linear-gradient(135deg, #FFA100, #ff8c00); }
+.increase-badge, .decrease-badge, .neutral-badge { background-color: rgba(255, 255, 255, 0.2); }
+
+/* Oculta botões de navegação em mobile */
+.carousel-control-prev, .carousel-control-next { display: none; }
+.custom-carousel-inner {
+    padding: 0 5px; 
+}
+
+
+/* --------------------------------- */
+/* TAB BAR DE NAVEGAÇÃO INFERIOR */
+/* --------------------------------- */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 65px;
+    background-color: white;
+    border-top: 1px solid #eee;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #888;
+    font-size: 0.7rem;
+    font-weight: 600;
+    transition: color 0.2s;
+    width: 20%; 
+}
+
+.bottom-nav .nav-item i {
+    font-size: 1.5rem;
+    margin-bottom: 3px;
+}
+
+.bottom-nav .nav-item.active {
+    color: var(--primary-app); 
+}
